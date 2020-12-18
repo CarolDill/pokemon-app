@@ -12,49 +12,86 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   grid-area: h;
-  background: #212121;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  ul {
+    height: 100%;
+  }
+
+  li {
+    display: inline;
+    align-self: center;
+    height: 100%;
+    padding: 0 5vh 0 5vh;
+    font: 25px Karla, sans-serif;
+  }
 `;
 
 export const Content = styled.div`
-  padding-top: 128px;
-  padding-left: 156px;
+  //128px;
+  padding-top: 17%;
+  //156px;
+  padding-left: 21%;
   grid-area: c;
-  background: blue;
 `;
 
 export const CoverText = styled.div`
-  width: 510px;
+  width: 71%;
   h1 {
     font: 72px Karla, sans-serif;
   }
 
   h2 {
-    font: 32px Karla, sans-serif;
+    padding-top: 12%;
+    padding-bottom: 11%;
+    font: 26px Karla, sans-serif;
   }
 `;
 
 export const Form = styled.form`
-  width: 510px;
+  //510px;
+  width: 71%;
+
   input {
-    height: 66px;
-    width: 276px;
+    //66px;
+    height: 6vh;
+    //276px;
+    width: 54%;
+    font-family: 23px Karla, sans-serif;
+    color: #212121;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
   }
   button {
-    height: 66px;
-    width: 231px;
+    //66px;
+    height: 6vh;
+    //231px;
+    width: 45%;
+    border-radius: 5px;
+    border: 1px;
+    box-shadow: 0 4px #5eaf62;
+    background: #73d677;
 
     font-family: 23px Karla, sans-serif;
     font-style: normal;
     font-weight: bold;
-    line-height: 27px;
 
     color: #212121;
   }
 `;
 
 export const Images = styled.div`
-  background: gray;
   grid-area: i;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  img {
+    width: 100%;
+  }
 `;
 
 export const Footer = styled.footer`
@@ -66,6 +103,9 @@ export const Footer = styled.footer`
   align-items: center;
 
   p {
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
     font-size: 18px;
   }
 `;

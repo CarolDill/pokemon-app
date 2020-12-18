@@ -9,6 +9,7 @@ import {
   Images,
   Footer,
 } from './styles';
+import Pikachu from '../../assets/pikachu-banner.svg';
 
 const Home: React.FC = () => {
   return (
@@ -33,11 +34,11 @@ const Home: React.FC = () => {
 
           <Form>
             <input placeholder="Type pokemon name" />
-            <button type="submit">See pokemons</button>
+            <button type="submit">Search pokemons</button>
           </Form>
         </Content>
         <Images>
-          <p>images</p>
+          <img src={Pikachu} alt="Picachu" />
         </Images>
         <Footer>
           <p>Layout credit: team Platzi Master</p>
