@@ -40,25 +40,32 @@ export const Header = styled.div`
 export const Content = styled.div`
   grid-area: c;
   justify-self: center;
-  width: 80vw;
+  width: 70vw;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 
   h1 {
-    text-align: center;
     width: 100%;
     color: #ffffff;
     font-size: 72px;
     font-family: Karla;
+    font-style: normal;
+    font-weight: normal;
     border-bottom: 1px solid #ffffff;
   }
   .Image {
     display: flex;
     justify-content: space-between;
-    margin-top: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     height: 45vh;
 
     section {
-      width: 30vw;
-      margin-right: 5vw;
+      width: 25vw;
+      margin: 0 5vw 0 0;
 
       h2 {
         font-family: Karla;
@@ -71,9 +78,45 @@ export const Content = styled.div`
         font-family: Source Sans Pro;
         font-size: 16px;
         color: #ffffff;
+        margin-bottom: 3vh;
+      }
+    }
+
+    .staticsCards {
+      display: flex;
+      gap: 5vw;
+
+      .statisticsPokemon {
+        width: 12vw;
+        height: 5vh;
+
+        h3 {
+          font-family: Karla;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          color: #fdfdfd;
+        }
+
+        h4 {
+          font-family: Karla;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          color: #fdfdfd;
+        }
+
+        img {
+          width: 10vw;
+        }
       }
     }
   }
+`;
+
+export const OtherLegendaries = styled.div`
+  height: 20vh;
+  background: grey;
 `;
 
 export const Footer = styled.footer`
