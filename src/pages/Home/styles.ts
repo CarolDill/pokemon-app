@@ -14,17 +14,22 @@ export const Header = styled.div`
   grid-area: h;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: end;
-  align-items: center;
+
+  img {
+    padding-left: 10%;
+  }
 
   ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
     height: 100%;
+    list-style: none;
+    padding-right: 10%;
   }
 
   li {
-    display: inline;
     align-self: center;
-    height: 100%;
     padding: 0 5vh 0 5vh;
     font: 25px Karla, sans-serif;
   }
@@ -32,7 +37,7 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   //128px;
-  padding-top: 17%;
+  padding-top: 12%;
   //156px;
   padding-left: 21%;
   grid-area: c;

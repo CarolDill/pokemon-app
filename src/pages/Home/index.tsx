@@ -10,17 +10,19 @@ import {
   Footer,
 } from './styles';
 import Pikachu from '../../assets/pikachu-banner.svg';
+import Logo from '../../assets/logo.svg';
 
 const Home: React.FC = () => {
   return (
     <>
       <Container>
         <Header>
+          <img src={Logo} alt="Pikachu logo" />
           <ul>
             <li>Home</li>
             <li>Pokedex</li>
+            <li>Legendaries</li>
             <li>Documentation</li>
-            <li>See Pokemons</li>
           </ul>
         </Header>
         <Content>
@@ -33,7 +35,6 @@ const Home: React.FC = () => {
           </CoverText>
 
           <Form>
-            <input placeholder="Type pokemon name" />
             <button type="submit">Search pokemons</button>
           </Form>
         </Content>

@@ -10,7 +10,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: linear-gradient(180deg, #F5DB13 0%, #F2B807 100%) no-repeat;
+    background: linear-gradient(180deg, #F5DB13 0%, #F2B807 100%);
     -webkit-font-smoothing: antialiased;
   }
 `;
