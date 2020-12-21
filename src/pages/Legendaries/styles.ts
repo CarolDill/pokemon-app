@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   grid-area: h;
   background: #f5db13;
-  box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+  box-shadow: 0 0.4rem 1.6rem rgba(1, 28, 64, 0.2);
   display: flex;
 
   img {
@@ -32,8 +32,8 @@ export const Header = styled.div`
 
   li {
     align-self: center;
-    padding: 0 5vh 0 5vh;
-    font: 25px Karla, sans-serif;
+    padding: 0 0.5rem 0 0.5rem;
+    font: 2.5rem Karla, sans-serif;
   }
 `;
 
@@ -44,17 +44,17 @@ export const Content = styled.div`
   overflow: auto;
 
   ::-webkit-scrollbar {
-    width: 0px;
+    width: 0rem;
   }
 
   h1 {
     width: 100%;
     color: #ffffff;
-    font-size: 72px;
+    font-size: 7.2rem;
     font-family: Karla;
     font-style: normal;
     font-weight: normal;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 0.1rem solid #ffffff;
   }
   .Image {
     display: flex;
@@ -70,13 +70,13 @@ export const Content = styled.div`
       h2 {
         font-family: Karla;
         font-weight: normal;
-        font-size: 72px;
+        font-size: 7.2rem;
         color: #fdfdfd;
       }
 
       p {
         font-family: Source Sans Pro;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: #ffffff;
         margin-bottom: 3vh;
       }
@@ -94,7 +94,7 @@ export const Content = styled.div`
           font-family: Karla;
           font-style: normal;
           font-weight: normal;
-          font-size: 16px;
+          font-size: 1.6rem;
           color: #fdfdfd;
         }
 
@@ -102,7 +102,7 @@ export const Content = styled.div`
           font-family: Karla;
           font-style: normal;
           font-weight: bold;
-          font-size: 16px;
+          font-size: 1.6rem;
           color: #fdfdfd;
         }
 
@@ -121,7 +121,7 @@ export const OtherLegendaries = styled.div`
   .miniCard {
     width: 8vw;
     height: 20vh;
-    border-radius: 16px;
+    border-radius: 1.6rem;
     background: linear-gradient(
       215.78deg,
       #b57e10 -124.09%,
@@ -145,7 +145,7 @@ export const OtherLegendaries = styled.div`
       height: 5vh;
       width: 100%;
       background: linear-gradient(180deg, #ffffff 30.32%, #f5f5f5 100%);
-      border-radius: 16px;
+      border-radius: 1.6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -156,8 +156,8 @@ export const OtherLegendaries = styled.div`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
+        font-size: 1.8rem;
+        line-height: 2.1rem;
       }
     }
   }
@@ -166,7 +166,7 @@ export const OtherLegendaries = styled.div`
 export const Footer = styled.footer`
   grid-area: f;
   display: flex;
-  padding: 0 100px 0 100px;
+  padding: 0 10rem 0 10rem;
 
   justify-content: space-around;
   align-items: center;
@@ -175,6 +175,6 @@ export const Footer = styled.footer`
     font-family: Karla;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 `;

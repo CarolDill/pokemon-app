@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   grid-area: h;
-  box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+  box-shadow: 0 0.4rem 1.6rem rgba(1, 28, 64, 0.2);
   display: flex;
 
   img {
@@ -31,7 +31,7 @@ export const Header = styled.div`
   li {
     align-self: center;
     padding: 0 5vh 0 5vh;
-    font: 25px Karla, sans-serif;
+    font: 2.5rem Karla, sans-serif;
   }
 `;
 
@@ -46,7 +46,7 @@ export const ContentText = styled.div`
 
   h1 {
     text-align: center;
-    font: 35px Karla, sans-serif;
+    font: 3.5rem Karla, sans-serif;
     padding: 5vh 0 3vh 0;
   }
   input {
@@ -55,10 +55,10 @@ export const ContentText = styled.div`
     width: 75vw;
     align-self: center;
     background: #f2f2f2;
-    border-radius: 40px;
-    box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+    border-radius: 4rem;
+    box-shadow: 0.4rem 0.4rem 1.6rem rgba(1, 28, 64, 0.2);
 
-    font: 16px Source Sans Pro, sans-serif;
+    font: 1.6rem Source Sans Pro, sans-serif;
     color: #212121;
   }
 `;
@@ -77,8 +77,8 @@ export const Card = styled.div`
     margin: 0;
     width: 25vw;
     height: 18vh;
-    border-radius: 8px;
-    box-shadow: 4px 4px 4px 0px #212121 10%;
+    border-radius: 0.8rem;
+    box-shadow: 0.4rem 0.4rem 0.4rem 0 #212121 10%;
     background: #f2f2f2;
     display: flex;
 
@@ -91,8 +91,8 @@ export const Card = styled.div`
         font-family: Karla;
         font-style: normal;
         font-weight: bold;
-        font-size: 18px;
-        text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+        font-size: 1.8rem;
+        text-shadow: 0.4rem 0.4rem 0.4rem rgba(33, 33, 33, 0.1);
         text-align: center;
         padding-top: 1vh;
       }
@@ -107,7 +107,7 @@ export const Card = styled.div`
         height: 4vh;
         width: 2vw;
         border-radius: 50%;
-        border: 3px solid #212121;
+        border: 0.3rem solid #212121;
         align-items: center;
         justify-content: center;
       }
@@ -117,7 +117,7 @@ export const Card = styled.div`
       }
 
       .subtitle p {
-        font-size: 12px;
+        font-size: 1.2rem;
         font-family: Roboto;
         padding: 0 01vh 0 01vh;
       }
@@ -128,30 +128,30 @@ export const Card = styled.div`
 
         .grass {
           color: #212121;
-          width: 60px;
+          width: 6rem;
           font-family: Roboto;
           font-style: normal;
           font-weight: bold;
-          font-size: 12px;
+          font-size: 1.2rem;
           text-align: center;
 
           background: #07d6f2;
-          box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
-          border-radius: 11px;
+          box-shadow: inset 0 -0.2rem 0 rgba(0, 0, 0, 0.18);
+          border-radius: 1.1rem;
         }
 
         .poison {
           color: #212121;
-          width: 60px;
+          width: 6rem;
           font-family: Roboto;
           font-style: normal;
           font-weight: bold;
-          font-size: 12px;
+          font-size: 1.2rem;
           text-align: center;
 
           background: #73d677;
-          box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
-          border-radius: 11px;
+          box-shadow: inset 0 -0.2rem 0 rgba(0, 0, 0, 0.18);
+          border-radius: 1.1rem;
         }
       }
     }
@@ -168,7 +168,7 @@ export const Card = styled.div`
 export const Footer = styled.footer`
   grid-area: f;
   display: flex;
-  padding: 0 100px 0 100px;
+  padding: 0 10rem 0 10rem;
 
   justify-content: space-around;
   align-items: center;
@@ -177,6 +177,6 @@ export const Footer = styled.footer`
     font-family: Karla;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 `;

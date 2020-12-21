@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   grid-area: h;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.6);
   display: flex;
 
   img {
@@ -31,7 +31,7 @@ export const Header = styled.div`
   li {
     align-self: center;
     padding: 0 5vh 0 5vh;
-    font: 25px Karla, sans-serif;
+    font: 2.5rem Karla, sans-serif;
   }
 `;
 
@@ -46,13 +46,13 @@ export const Content = styled.div`
 export const CoverText = styled.div`
   width: 71%;
   h1 {
-    font: 72px Karla, sans-serif;
+    font: 7.2rem Karla, sans-serif;
   }
 
   h2 {
     padding-top: 12%;
     padding-bottom: 11%;
-    font: 26px Karla, sans-serif;
+    font: 2.6rem Karla, sans-serif;
   }
 `;
 
@@ -65,23 +65,23 @@ export const Form = styled.form`
     height: 6vh;
     //276px;
     width: 54%;
-    font-family: 23px Karla, sans-serif;
+    font-family: 2.3rem Karla, sans-serif;
     color: #212121;
     font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.6);
   }
   button {
     //66px;
     height: 6vh;
     //231px;
     width: 45%;
-    border-radius: 5px;
-    border: 1px;
+    border-radius: 0.5rem;
+    border: 0.1rem;
     box-shadow: 0 4px #5eaf62;
     background: #73d677;
 
-    font-family: 23px Karla, sans-serif;
+    font-family: 2.3rem Karla, sans-serif;
     font-style: normal;
     font-weight: bold;
 
@@ -102,7 +102,7 @@ export const Images = styled.div`
 export const Footer = styled.footer`
   grid-area: f;
   display: flex;
-  padding: 0 100px 0 100px;
+  padding: 0 10rem 0 10rem;
 
   justify-content: space-around;
   align-items: center;
@@ -111,6 +111,6 @@ export const Footer = styled.footer`
     font-family: Karla;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 `;
