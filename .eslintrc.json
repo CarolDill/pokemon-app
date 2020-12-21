@@ -21,8 +21,15 @@
     "rules": {
       "import/prefer-default-export": "off",
       "prettier/prettier": "error",
+      "camelcase": "off",
       "import/no-duplicates": "off",
       "no-use-before-define": "off",
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ],
       "import/extensions": [
         "error",
         "ignorePackages",

@@ -115,8 +115,52 @@ export const Content = styled.div`
 `;
 
 export const OtherLegendaries = styled.div`
-  height: 20vh;
-  background: grey;
+  display: flex;
+  justify-content: space-between;
+
+  .miniCard {
+    width: 8vw;
+    height: 20vh;
+    border-radius: 16px;
+    background: linear-gradient(
+      215.78deg,
+      #b57e10 -124.09%,
+      #b57e10 -78.76%,
+      #f9df7b -35.76%,
+      #fff3a6 8.4%,
+      #f9df7b 50.24%,
+      #b57e10 99.06%
+    );
+
+    .podemonIkon {
+      height: 16vh;
+      width: 12vw;
+      position: relative;
+      top: -2vh;
+      left: -2vw;
+    }
+
+    div {
+      position: relative;
+      height: 5vh;
+      width: 100%;
+      background: linear-gradient(180deg, #ffffff 30.32%, #f5f5f5 100%);
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      top: -1vh;
+      padding: 0 1vw 0 1vw;
+
+      p {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+  }
 `;
 
 export const Footer = styled.footer`

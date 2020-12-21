@@ -76,13 +76,16 @@ export const Card = styled.div`
   span {
     margin: 0;
     width: 25vw;
-    height: 15vh;
+    height: 18vh;
     border-radius: 8px;
     box-shadow: 4px 4px 4px 0px #212121 10%;
     background: #f2f2f2;
     display: flex;
 
     section {
+      background: green;
+      width: 40%;
+
       h1 {
         color: #212121;
         font-family: Karla;
@@ -91,25 +94,30 @@ export const Card = styled.div`
         font-size: 18px;
         text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
         text-align: center;
+        padding-top: 1vh;
       }
 
       .circle {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        width: 100%;
       }
 
-      .circle p {
-        height: 30px;
+      .circle div {
+        margin-top: 2vh;
+        height: 4vh;
+        width: 2vw;
+        border-radius: 50%;
+        border: 3px solid #212121;
+        align-items: center;
+        justify-content: center;
       }
 
       .subtitle {
         display: flex;
-        justify-content: space-around;
       }
 
       .subtitle p {
-        font-size: 20px;
+        font-size: 12px;
         font-family: Roboto;
         padding: 0 01vh 0 01vh;
       }
@@ -149,8 +157,10 @@ export const Card = styled.div`
     }
 
     img {
-      width: 100%;
-      height: 100%;
+      /* position: relative;
+      width: 60%;
+      height: fit-content; */
+      flex: 1;
     }
   }
 `;

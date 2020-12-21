@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import Pikachu from '../../assets/pikachu-banner.svg';
+import Logo from '../../assets/logo.svg';
 
 import {
   Container,
@@ -9,8 +12,6 @@ import {
   Images,
   Footer,
 } from './styles';
-import Pikachu from '../../assets/pikachu-banner.svg';
-import Logo from '../../assets/logo.svg';
 
 const Home: React.FC = () => {
   return (

@@ -7,6 +7,9 @@ import LegendariesImage from '../../assets/legendaries.svg';
 import Dragonair from '../../assets/dragonair.svg';
 import CardCharge from '../../assets/cardcharge.svg';
 import Flareon from '../../assets/flareon.svg';
+import MiniBall from '../../assets/minipokeballgold.svg';
+import LeftArrow from '../../assets/arrowLeft.svg';
+import RightArrow from '../../assets/arrowRight.svg';
 
 const Legendaries: React.FC = () => {
   return (
@@ -68,7 +71,56 @@ const Legendaries: React.FC = () => {
             </section>
           </div>
           <OtherLegendaries>
-            <p>space</p>
+            <img src={LeftArrow} alt="" />
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <img src={RightArrow} alt="" />
           </OtherLegendaries>
 
           <h1>Stronger</h1>
@@ -117,7 +169,56 @@ const Legendaries: React.FC = () => {
             </section>
           </div>
           <OtherLegendaries>
-            <p>space</p>
+            <img src={LeftArrow} alt="" />
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <img src={RightArrow} alt="" />
           </OtherLegendaries>
 
           <h1>Weaker</h1>
@@ -166,7 +267,56 @@ const Legendaries: React.FC = () => {
             </section>
           </div>
           <OtherLegendaries>
-            <p>space</p>
+            <img src={LeftArrow} alt="" />
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <div className="miniCard">
+              <img className="podemonIkon" src={LegendariesImage} alt="" />
+              <div>
+                <p>Mew</p>
+                <img src={MiniBall} alt="" />
+              </div>
+            </div>
+
+            <img src={RightArrow} alt="" />
           </OtherLegendaries>
         </Content>
         <Footer>
