@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Pikachu from '../../assets/pikachu-banner.svg';
 import Logo from '../../assets/logo.svg';

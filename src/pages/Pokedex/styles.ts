@@ -70,8 +70,8 @@ export const Filter = styled.div`
 
 export const Card = styled.div`
   display: flex;
-  flex-flow: column wrap;
   padding: 0 20vh 0 20vh;
+  gap: 2vw;
 
   span {
     margin: 0;
