@@ -32,6 +32,11 @@ export const Header = styled.div`
     align-self: center;
     padding: 0 5vh 0 5vh;
     font: 2.5rem Karla, sans-serif;
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
   }
 `;
 

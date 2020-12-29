@@ -21,10 +21,20 @@ const Home: React.FC = () => {
         <Header>
           <img src={Logo} alt="Pikachu logo" />
           <ul>
-            <li>Home</li>
-            <li>Pokedex</li>
-            <li>Legendaries</li>
-            <li>Documentation</li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/pokedex">Pokedex</a>
+            </li>
+            <li>
+              <a href="/legendaries">Legendaries</a>
+            </li>
+            <li>
+              <a href="https://pokeapi.co/" target="_blank">
+                Documentation
+              </a>
+            </li>
           </ul>
         </Header>
         <Content>

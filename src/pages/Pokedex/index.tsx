@@ -4,14 +4,21 @@ import api from '../../services/api';
 import {
   Container,
   Header,
-  Background,
+  Dashboard,
   ContentText,
   Filter,
+  BoxContainer,
   Card,
+  PokemonContent,
+  PokemonDescription,
+  PokemonType,
+  Color,
+  Description,
+  PokemonImg,
+  SkillDescription,
   Footer,
 } from './styles';
 import Logo from '../../assets/logo.svg';
-import CardImg from '../../assets/pikachucardbox.svg';
 
 interface PokemonDetails {
   id: number;
@@ -41,10 +48,8 @@ interface Pokemon {
   id: number;
   name: string;
   imagePath: string;
-  pokemonSkill: {
-    rate: number;
-    skill: string;
-  };
+  attack: number;
+  defense: number;
   pokemonTypes: Array<string>;
 }
 
@@ -55,7 +60,7 @@ const Details: React.FC = () => {
   const loadData = async (): Promise<void> => {
     const {
       data: { results },
-    } = await api.get('/pokemon/?limit=5');
+    } = await api.get('/pokemon/?limit=40');
 
     const pokemonDB: Pokemon[] = await Promise.all(
       results.map(async (pokemon: { name: string }) => {
@@ -76,14 +81,14 @@ const Details: React.FC = () => {
           types,
         } = pokemonDetails;
 
-        const pokemonSkill = stats.map(statistic => {
-          const {
-            base_stat: rate,
-            stat: { name: skill },
-          } = statistic;
+        const skills = stats.map(statistic => {
+          const { base_stat: rate } = statistic;
 
-          return { rate, skill };
+          return rate;
         });
+
+        const attack = skills.slice(1, 2)[0];
+        const defense = skills.slice(2, 3)[0];
 
         const pokemonTypes: Array<string> = [];
 
@@ -95,15 +100,13 @@ const Details: React.FC = () => {
           return pokemonTypes.push(nameOfPokemonType);
         });
 
-        return { id, name, imagePath, pokemonSkill, pokemonTypes };
+        return { id, name, imagePath, attack, defense, pokemonTypes };
       }),
     );
 
     setPokedex(pokemonDB);
     setLoading(false);
   };
-
-  console.log(pokedex);
 
   useEffect(() => {
     setLoading(true);
@@ -117,13 +120,23 @@ const Details: React.FC = () => {
           <Header>
             <img src={Logo} alt="Pikachu logo" />
             <ul>
-              <li>Home</li>
-              <li>Pokedex</li>
-              <li>Legendaries</li>
-              <li>Documentation</li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/pokedex">Pokedex</a>
+              </li>
+              <li>
+                <a href="/legendaries">Legendaries</a>
+              </li>
+              <li>
+                <a href="https://pokeapi.co/" target="_blank">
+                  Documentation
+                </a>
+              </li>
             </ul>
           </Header>
-          <Background>
+          <Dashboard>
             <ContentText>
               <h1>
                 Many <strong>pokemons</strong> for you to choose your favorite
@@ -135,46 +148,47 @@ const Details: React.FC = () => {
               />
             </ContentText>
             <Filter></Filter>
-            <Card>
+
+            <BoxContainer>
               {pokedex.map(pokemon => (
-                <span>
-                  <>
-                    <section>
-                      <h1>{pokemon.name}</h1>
-                      <div className="circle">
-                        <div>{pokemon.pokemonSkill.rate}</div>
-                        <div>{pokemon.pokemonSkill.skill}</div>
-                      </div>
-                      <div className="info">
-                        {pokemon.pokemonTypes.map(type => (
-                          <button className="grass">{type}</button>
-                        ))}
-                        {/* <button className="poison">Poison</button> */}
-                      </div>
-                    </section>
-                    <img src={pokemon.imagePath} alt="Pikachu image" />
-                  </>
-                </span>
+                <Card>
+                  <PokemonContent>
+                    <PokemonDescription>
+                      <h2>
+                        {pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}
+                      </h2>
+                      <Description>
+                        <SkillDescription>
+                          <div>
+                            <p>{pokemon.attack}</p>
+                          </div>
+                          <h3>Attack</h3>
+                        </SkillDescription>
+
+                        <SkillDescription>
+                          <div>
+                            <p>{pokemon.defense}</p>
+                          </div>
+                          <h3>Defense</h3>
+                        </SkillDescription>
+                      </Description>
+                    </PokemonDescription>
+                    <PokemonImg>
+                      <img src={pokemon.imagePath} alt={pokemon.name} />
+                    </PokemonImg>
+                  </PokemonContent>
+
+                  <PokemonType>
+                    {pokemon.pokemonTypes.map(type => (
+                      <Color property={type}>
+                        <h2>{type}</h2>
+                      </Color>
+                    ))}
+                  </PokemonType>
+                </Card>
               ))}
-              {/* <section>
-                  <h1>Pikachu</h1>
-                  <div className="circle">
-                    <div>419</div>
-                    <div>49</div>
-                  </div>
-                  <div className="subtitle">
-                    <p>Attack</p>
-                    <p>Defense</p>
-                  </div>
-                  <div className="info">
-                    <button className="grass">Grass</button>
-                    <button className="poison">Poison</button>
-                  </div>
-                </section> */}
-              {/* <img src={CardImg} alt="Pikachu image" /> */}
-              {/* </span> */}
-            </Card>
-          </Background>
+            </BoxContainer>
+          </Dashboard>
           <Footer>
             <p>Layout credit: team Platzi Master</p>
             <p>Carol Dill 2020</p>
