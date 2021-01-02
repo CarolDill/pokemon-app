@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
 import api from '../../services/api';
 
 import {
@@ -16,9 +17,12 @@ import {
   Description,
   PokemonImg,
   SkillDescription,
+  Button,
   Footer,
 } from './styles';
 import Logo from '../../assets/logo.svg';
+import LeftArrow from '../../assets/arrowLeft.svg';
+import RightArrow from '../../assets/arrowRight.svg';
 
 interface PokemonDetails {
   id: number;
@@ -55,16 +59,127 @@ interface Pokemon {
 
 const Details: React.FC = () => {
   const [pokedex, setPokedex] = useState<Pokemon[]>([]);
+  const [nextUrl, setNextUrl] = useState('');
+  const [prevUrl, setPrevUrl] = useState('');
   const [isLoading, setLoading] = useState(true);
 
   const loadData = async (): Promise<void> => {
-    const {
-      data: { results },
-    } = await api.get('/pokemon/?limit=40');
+    const { data } = await api.get('/pokemon/');
+
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
 
     const pokemonDB: Pokemon[] = await Promise.all(
-      results.map(async (pokemon: { name: string }) => {
+      data.results.map(async (pokemon: { name: string }) => {
         const { name } = pokemon;
+
+        const { data: pokemonDetails } = await api.get<PokemonDetails>(
+          `/pokemon/${name}`,
+        );
+
+        const {
+          id,
+          sprites: {
+            other: {
+              dream_world: { front_default: imagePath },
+            },
+          },
+          stats,
+          types,
+        } = pokemonDetails;
+
+        const skills = stats.map(statistic => {
+          const { base_stat: rate } = statistic;
+
+          return rate;
+        });
+
+        const attack = skills.slice(1, 2)[0];
+        const defense = skills.slice(2, 3)[0];
+
+        const pokemonTypes: Array<string> = [];
+
+        types.map(type => {
+          const {
+            type: { name: nameOfPokemonType },
+          } = type;
+
+          return pokemonTypes.push(nameOfPokemonType);
+        });
+
+        return { id, name, imagePath, attack, defense, pokemonTypes };
+      }),
+    );
+
+    setPokedex(pokemonDB);
+    setLoading(false);
+  };
+
+  const next = async (): Promise<void> => {
+    const { data } = await Axios.get(nextUrl);
+
+    setLoading(true);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+
+    const pokemonDB: Pokemon[] = await Promise.all(
+      data.results.map(async (pokemon: { name: string }) => {
+        const { name } = pokemon;
+        console.log(name);
+
+        const { data: pokemonDetails } = await api.get<PokemonDetails>(
+          `/pokemon/${name}`,
+        );
+
+        const {
+          id,
+          sprites: {
+            other: {
+              dream_world: { front_default: imagePath },
+            },
+          },
+          stats,
+          types,
+        } = pokemonDetails;
+
+        const skills = stats.map(statistic => {
+          const { base_stat: rate } = statistic;
+
+          return rate;
+        });
+
+        const attack = skills.slice(1, 2)[0];
+        const defense = skills.slice(2, 3)[0];
+
+        const pokemonTypes: Array<string> = [];
+
+        types.map(type => {
+          const {
+            type: { name: nameOfPokemonType },
+          } = type;
+
+          return pokemonTypes.push(nameOfPokemonType);
+        });
+
+        return { id, name, imagePath, attack, defense, pokemonTypes };
+      }),
+    );
+
+    setPokedex(pokemonDB);
+    setLoading(false);
+  };
+
+  const previous = async (): Promise<void> => {
+    const { data } = await Axios.get(prevUrl);
+
+    setLoading(true);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+
+    const pokemonDB: Pokemon[] = await Promise.all(
+      data.results.map(async (pokemon: { name: string }) => {
+        const { name } = pokemon;
+        console.log(name);
 
         const { data: pokemonDetails } = await api.get<PokemonDetails>(
           `/pokemon/${name}`,
@@ -188,6 +303,14 @@ const Details: React.FC = () => {
                 </Card>
               ))}
             </BoxContainer>
+            <Button>
+              <button onClick={previous}>
+                <img src={LeftArrow} alt="" />
+              </button>
+              <button onClick={next}>
+                <img src={RightArrow} alt="" />
+              </button>
+            </Button>
           </Dashboard>
           <Footer>
             <p>Layout credit: team Platzi Master</p>
