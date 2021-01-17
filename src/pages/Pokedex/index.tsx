@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FormEvent } from 'react';
 import Axios from 'axios';
 import api from '../../services/api';
 
@@ -21,8 +21,8 @@ import {
   Footer,
 } from './styles';
 import Logo from '../../assets/logo.svg';
-import LeftArrow from '../../assets/arrowLeft.svg';
-import RightArrow from '../../assets/arrowRight.svg';
+import LeftArrowYellow from '../../assets/arrowLeft.svg';
+import RightArrowYellow from '../../assets/arrowRight.svg';
 
 interface PokemonDetails {
   id: number;
@@ -62,6 +62,8 @@ const Details: React.FC = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [isLoading, setLoading] = useState(true);
+  const [pokeSearch, setPokeSearch] = useState('');
+  const [searchResults, setSearchResults] = useState<Pokemon[]>([]);
 
   const loadData = async (): Promise<void> => {
     const { data } = await api.get('/pokemon/');
@@ -125,7 +127,6 @@ const Details: React.FC = () => {
     const pokemonDB: Pokemon[] = await Promise.all(
       data.results.map(async (pokemon: { name: string }) => {
         const { name } = pokemon;
-        console.log(name);
 
         const { data: pokemonDetails } = await api.get<PokemonDetails>(
           `/pokemon/${name}`,
@@ -179,7 +180,6 @@ const Details: React.FC = () => {
     const pokemonDB: Pokemon[] = await Promise.all(
       data.results.map(async (pokemon: { name: string }) => {
         const { name } = pokemon;
-        console.log(name);
 
         const { data: pokemonDetails } = await api.get<PokemonDetails>(
           `/pokemon/${name}`,
@@ -223,6 +223,20 @@ const Details: React.FC = () => {
     setLoading(false);
   };
 
+  const results = pokedex.filter(result =>
+    result.name.toLowerCase().includes(pokeSearch),
+  );
+
+  // setSearchResults(results);
+
+  async function handleAddRepository(
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> {
+    event.preventDefault();
+  }
+
+  console.log(results);
+
   useEffect(() => {
     setLoading(true);
     loadData();
@@ -252,21 +266,22 @@ const Details: React.FC = () => {
             </ul>
           </Header>
           <Dashboard>
-            <ContentText>
+            <ContentText onSubmit={handleAddRepository}>
               <h1>
                 Many <strong>pokemons</strong> for you to choose your favorite
               </h1>
               <input
-                // value={newPoke}
-                // onChange={e => setNewPoke(e.target.value)}
+                type="text"
                 placeholder="Find your pokemon"
+                value={pokeSearch}
+                onChange={e => setPokeSearch(e.target.value)}
               />
             </ContentText>
             <Filter></Filter>
 
             <BoxContainer>
               {pokedex.map(pokemon => (
-                <Card>
+                <Card key={pokemon.name}>
                   <PokemonContent>
                     <PokemonDescription>
                       <h2>
@@ -295,7 +310,7 @@ const Details: React.FC = () => {
 
                   <PokemonType>
                     {pokemon.pokemonTypes.map(type => (
-                      <Color property={type}>
+                      <Color key={type} property={type}>
                         <h2>{type}</h2>
                       </Color>
                     ))}
@@ -305,10 +320,10 @@ const Details: React.FC = () => {
             </BoxContainer>
             <Button>
               <button onClick={previous}>
-                <img src={LeftArrow} alt="" />
+                <img src={LeftArrowYellow} alt="" />
               </button>
               <button onClick={next}>
-                <img src={RightArrow} alt="" />
+                <img src={RightArrowYellow} alt="" />
               </button>
             </Button>
           </Dashboard>

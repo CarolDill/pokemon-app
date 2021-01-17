@@ -54,7 +54,7 @@ export const Dashboard = styled.div`
   }
 `;
 
-export const ContentText = styled.div`
+export const ContentText = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -356,6 +356,18 @@ export const Color = styled.span`
         background: #e2e5e9;
       }
     `}
+`;
+
+export const Button = styled.div`
+  display: flex;
+  width: 75vw;
+  justify-content: space-around;
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
 `;
 
 export const Footer = styled.footer`
