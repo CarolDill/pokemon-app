@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FormEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import api from '../../services/api';
 
@@ -223,19 +223,13 @@ const Details: React.FC = () => {
     setLoading(false);
   };
 
-  const results = pokedex.filter(result =>
-    result.name.toLowerCase().includes(pokeSearch),
-  );
-
-  // setSearchResults(results);
-
-  async function handleAddRepository(
-    event: FormEvent<HTMLFormElement>,
-  ): Promise<void> {
-    event.preventDefault();
-  }
-
-  console.log(results);
+  React.useEffect(() => {
+    const results = pokedex.filter(result =>
+      result.name.toLowerCase().includes(pokeSearch),
+    );
+    setSearchResults(results);
+    console.log(results);
+  }, [pokeSearch]);
 
   useEffect(() => {
     setLoading(true);
@@ -266,7 +260,7 @@ const Details: React.FC = () => {
             </ul>
           </Header>
           <Dashboard>
-            <ContentText onSubmit={handleAddRepository}>
+            <ContentText>
               <h1>
                 Many <strong>pokemons</strong> for you to choose your favorite
               </h1>
