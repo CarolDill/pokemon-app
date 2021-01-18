@@ -64,6 +64,56 @@ const Details: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
   const [pokeSearch, setPokeSearch] = useState('');
   const [searchResults, setSearchResults] = useState<Pokemon[]>([]);
+  const [allPokemons, setAllPokemons] = useState<Pokemon[]>([]);
+
+  const loadAllData = async (): Promise<void> => {
+    const { data } = await api.get('/pokemon/?limit=1118');
+
+    const pokemonDB: Pokemon[] = await Promise.all(
+      data.results.map(async (pokemon: { name: string }) => {
+        const { name } = pokemon;
+
+        const { data: pokemonDetails } = await api.get<PokemonDetails>(
+          `/pokemon/${name}`,
+        );
+
+        const {
+          id,
+          sprites: {
+            other: {
+              dream_world: { front_default: imagePath },
+            },
+          },
+          stats,
+          types,
+        } = pokemonDetails;
+
+        const skills = stats.map(statistic => {
+          const { base_stat: rate } = statistic;
+
+          return rate;
+        });
+
+        const attack = skills.slice(1, 2)[0];
+        const defense = skills.slice(2, 3)[0];
+
+        const pokemonTypes: Array<string> = [];
+
+        types.map(type => {
+          const {
+            type: { name: nameOfPokemonType },
+          } = type;
+
+          return pokemonTypes.push(nameOfPokemonType);
+        });
+
+        return { id, name, imagePath, attack, defense, pokemonTypes };
+      }),
+    );
+
+    setAllPokemons(pokemonDB);
+    setLoading(false);
+  };
 
   const loadData = async (): Promise<void> => {
     const { data } = await api.get('/pokemon/');
@@ -224,16 +274,16 @@ const Details: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const results = pokedex.filter(result =>
+    const results = allPokemons.filter(result =>
       result.name.toLowerCase().includes(pokeSearch),
     );
     setSearchResults(results);
-    console.log(results);
   }, [pokeSearch]);
 
   useEffect(() => {
     setLoading(true);
     loadData();
+    loadAllData();
   }, []);
 
   return (
@@ -274,43 +324,83 @@ const Details: React.FC = () => {
             <Filter></Filter>
 
             <BoxContainer>
-              {pokedex.map(pokemon => (
-                <Card key={pokemon.name}>
-                  <PokemonContent>
-                    <PokemonDescription>
-                      <h2>
-                        {pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}
-                      </h2>
-                      <Description>
-                        <SkillDescription>
-                          <div>
-                            <p>{pokemon.attack}</p>
-                          </div>
-                          <h3>Attack</h3>
-                        </SkillDescription>
+              {!pokeSearch
+                ? pokedex.map(pokemon => (
+                    <Card key={pokemon.name}>
+                      <PokemonContent>
+                        <PokemonDescription>
+                          <h2>
+                            {pokemon.name[0].toUpperCase() +
+                              pokemon.name.slice(1)}
+                          </h2>
+                          <Description>
+                            <SkillDescription>
+                              <div>
+                                <p>{pokemon.attack}</p>
+                              </div>
+                              <h3>Attack</h3>
+                            </SkillDescription>
 
-                        <SkillDescription>
-                          <div>
-                            <p>{pokemon.defense}</p>
-                          </div>
-                          <h3>Defense</h3>
-                        </SkillDescription>
-                      </Description>
-                    </PokemonDescription>
-                    <PokemonImg>
-                      <img src={pokemon.imagePath} alt={pokemon.name} />
-                    </PokemonImg>
-                  </PokemonContent>
+                            <SkillDescription>
+                              <div>
+                                <p>{pokemon.defense}</p>
+                              </div>
+                              <h3>Defense</h3>
+                            </SkillDescription>
+                          </Description>
+                        </PokemonDescription>
+                        <PokemonImg>
+                          <img src={pokemon.imagePath} alt={pokemon.name} />
+                        </PokemonImg>
+                      </PokemonContent>
 
-                  <PokemonType>
-                    {pokemon.pokemonTypes.map(type => (
-                      <Color key={type} property={type}>
-                        <h2>{type}</h2>
-                      </Color>
-                    ))}
-                  </PokemonType>
-                </Card>
-              ))}
+                      <PokemonType>
+                        {pokemon.pokemonTypes.map(type => (
+                          <Color key={type} property={type}>
+                            <h2>{type}</h2>
+                          </Color>
+                        ))}
+                      </PokemonType>
+                    </Card>
+                  ))
+                : searchResults.map(pokemon => (
+                    <Card key={pokemon.name}>
+                      <PokemonContent>
+                        <PokemonDescription>
+                          <h2>
+                            {pokemon.name[0].toUpperCase() +
+                              pokemon.name.slice(1)}
+                          </h2>
+                          <Description>
+                            <SkillDescription>
+                              <div>
+                                <p>{pokemon.attack}</p>
+                              </div>
+                              <h3>Attack</h3>
+                            </SkillDescription>
+
+                            <SkillDescription>
+                              <div>
+                                <p>{pokemon.defense}</p>
+                              </div>
+                              <h3>Defense</h3>
+                            </SkillDescription>
+                          </Description>
+                        </PokemonDescription>
+                        <PokemonImg>
+                          <img src={pokemon.imagePath} alt={pokemon.name} />
+                        </PokemonImg>
+                      </PokemonContent>
+
+                      <PokemonType>
+                        {pokemon.pokemonTypes.map(type => (
+                          <Color key={type} property={type}>
+                            <h2>{type}</h2>
+                          </Color>
+                        ))}
+                      </PokemonType>
+                    </Card>
+                  ))}
             </BoxContainer>
             <Button>
               <button onClick={previous}>
