@@ -89,13 +89,12 @@ export const Content = styled.div`
 
     .staticsCards {
       display: flex;
-      gap: 5vw;
+      flex-wrap: wrap;
+      gap: 1vw;
 
       .statisticsPokemon {
-        width: 12vw;
-        height: 5vh;
-
         h3 {
+          width: 10vw;
           font-family: Karla;
           font-style: normal;
           font-weight: normal;
@@ -121,6 +120,7 @@ export const Content = styled.div`
 
 export const OtherLegendaries = styled.div`
   display: flex;
+  padding-top: 2vh;
   justify-content: space-between;
 
   .miniCard {

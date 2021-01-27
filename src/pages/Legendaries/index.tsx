@@ -1,4 +1,6 @@
 import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import { Line } from 'rc-progress';
 
 import { Container, Header, Content, OtherLegendaries, Footer } from './styles';
 
@@ -48,87 +50,86 @@ const Legendaries: React.FC = () => {
               </p>
               <div className="staticsCards">
                 <div className="statisticsPokemon">
-                  <h3>Healthy Points</h3>
-                  <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <h3>HP</h3>
+                  <h4>20</h4>
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
                 <div className="statisticsPokemon">
-                  <h3>Experience</h3>
+                  <h3>Speed</h3>
                   <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
                 <div className="statisticsPokemon">
                   <h3>Attack</h3>
                   <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
                 <div className="statisticsPokemon">
                   <h3>Defense</h3>
                   <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
                 <div className="statisticsPokemon">
                   <h3>Special Attack</h3>
                   <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
                 <div className="statisticsPokemon">
                   <h3>Special Defense</h3>
                   <h4>1000,000</h4>
-                  <img src={CardCharge} alt="Charge bar" />
+                  <Line percent={20} strokeWidth={4} strokeColor="#F5DB13" />
                 </div>
               </div>
             </section>
           </div>
           <OtherLegendaries>
             <img src={LeftArrow} alt="" />
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
+            <Carousel
+              infiniteLoop={true}
+              showIndicators={false}
+              showStatus={false}
+              dynamicHeight={true}
+            >
+              <div className="miniCard">
+                <img className="podemonIkon" src={LegendariesImage} alt="" />
+                <div>
+                  <p>Mew</p>
+                  <img src={MiniBall} alt="" />
+                </div>
               </div>
-            </div>
 
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
+              <div className="miniCard">
+                <img className="podemonIkon" src={LegendariesImage} alt="" />
+                <div>
+                  <p>Mew</p>
+                  <img src={MiniBall} alt="" />
+                </div>
               </div>
-            </div>
 
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
+              <div className="miniCard">
+                <img className="podemonIkon" src={LegendariesImage} alt="" />
+                <div>
+                  <p>Mew</p>
+                  <img src={MiniBall} alt="" />
+                </div>
               </div>
-            </div>
 
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
+              <div className="miniCard">
+                <img className="podemonIkon" src={LegendariesImage} alt="" />
+                <div>
+                  <p>Mew</p>
+                  <img src={MiniBall} alt="" />
+                </div>
               </div>
-            </div>
 
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
+              <div className="miniCard">
+                <img className="podemonIkon" src={LegendariesImage} alt="" />
+                <div>
+                  <p>Mew</p>
+                  <img src={MiniBall} alt="" />
+                </div>
               </div>
-            </div>
-
-            <div className="miniCard">
-              <img className="podemonIkon" src={LegendariesImage} alt="" />
-              <div>
-                <p>Mew</p>
-                <img src={MiniBall} alt="" />
-              </div>
-            </div>
+            </Carousel>
 
             <img src={RightArrow} alt="" />
           </OtherLegendaries>
